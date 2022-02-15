@@ -58,6 +58,22 @@ def insert_at(h, element, pos):
     return h
 
 
+def reverse_ll(node):
+    current = node
+    prev_node = None
+
+    while current is not None:
+        next_node = current.next
+        current.next = prev_node
+        prev_node = current
+
+        current = next_node
+
+    node = prev_node
+
+    return node
+
+
 if __name__ == '__main__':
     head = Node(30)
     head.next = Node(40)
@@ -79,4 +95,7 @@ if __name__ == '__main__':
     traverse(head)
     head = insert_at(head, 80, 9)
     print("\nAfter inserting item - 35 at position 3")
+    traverse(head)
+    print("\nReversing Linked List")
+    head = reverse_ll(head)
     traverse(head)
