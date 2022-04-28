@@ -42,6 +42,7 @@ def max_water_trapped_with_space_optimization(arr, n):
 
     return water_trapped
 
+
 if __name__ == '__main__':
     print(max_water_trapped([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1], 12))
     print(max_water_trapped_with_space_optimization([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1], 12))

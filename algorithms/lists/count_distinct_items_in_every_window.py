@@ -29,5 +29,41 @@ def count_distinct_by_window(arr, window_size):
     return distinct_counts_by_window
 
 
+def count_distinct_by_window_method_2(arr, window_size):
+    items_count_dict = {}
+    distinct_counts_by_window = []
+
+    for i in range(0, window_size):
+        items_count_dict[arr[i]] = get_or_else(items_count_dict, arr[i], 0) + 1
+
+    distinct_counts_by_window.append(len(items_count_dict))
+    i = 1
+    window_index = i + window_size - 1
+
+    while i < len(arr) and window_index < len(arr):
+        last_processed_item = arr[i - 1]
+
+        if items_count_dict[last_processed_item] == 1:
+            items_count_dict.pop(last_processed_item)
+        else:
+            items_count_dict[last_processed_item] = get_or_else(items_count_dict, last_processed_item, 0) - 1
+
+        items_count_dict[arr[window_index]] = get_or_else(items_count_dict, arr[window_index], 0) + 1
+
+        distinct_counts_by_window.append(len(items_count_dict))
+        i += 1
+        window_index = i + window_size - 1
+
+    return distinct_counts_by_window
+
+
+def get_or_else(dict, key, default_value):
+    if dict.get(key) is None:
+        return default_value
+    else:
+        return dict[key]
+
+
 if __name__ == '__main__':
     print(count_distinct_by_window([1, 2, 1, 3, 4, 2, 3], 4))
+    print(count_distinct_by_window_method_2([1, 2, 1, 3, 4, 2, 3], 4))

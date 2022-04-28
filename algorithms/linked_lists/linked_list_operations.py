@@ -4,7 +4,7 @@ from simple_linked_list import Node
 def traverse(h):
     curr = h
     while curr is not None:
-        print(curr.key, end=" ")
+        print(curr.key, end=' ')
         curr = curr.next
 
 
@@ -29,7 +29,11 @@ def prepend(h, element):
 
 def append(h, element):
     node_to_append = Node(element)
-    curr = head
+    curr = h
+
+    if curr is None:
+        return node_to_append
+
     while curr.next is not None:
         curr = curr.next
 
@@ -72,6 +76,15 @@ def reverse_ll(node):
     node = prev_node
 
     return node
+
+
+def length(node):
+    current = node
+    l = 1
+    while current is None:
+        l += 1
+        current = current.next
+    return l
 
 
 if __name__ == '__main__':

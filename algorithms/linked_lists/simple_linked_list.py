@@ -3,6 +3,7 @@ class Node:
         self.key = k
         self.next = None
 
+
 if __name__ == '__main__':
     head = Node(10)
     head.next = Node(20)
