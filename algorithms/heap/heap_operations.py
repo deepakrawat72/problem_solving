@@ -47,6 +47,6 @@ def min_heapify(heap, item):
 
 
 if __name__ == '__main__':
-    print (build_max_heap([3, 1, 7, 9, 10, 12, 4]))
-    print (build_max_heap([20, 10, 30, 5, 50, 40]))
-    print (build_min_heap([3, 1, 7, 9, 10, 12, 4]))
+    print(build_max_heap([3, 1, 7, 9, 10, 12, 4]))
+    print(build_max_heap([20, 10, 30, 5, 50, 40]))
+    print(build_min_heap([3, 1, 7, 9, 10, 12, 4]))
